@@ -1,39 +1,50 @@
 package com.stackroute.kafka.domain;
 
-import lombok.Data;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.annotation.Id;
-
 import java.math.BigDecimal;
 import java.util.List;
 
 public class Space {
-
-
-    private Location location;
-    private Address address;
-    private List<Category> category;
-
-    private Amenities amenities;
-    private User user;
-
     @Id
     int spaceId;
     String spaceName;
     String spaceImageUrl;
     BigDecimal totalprice;
+    private Location location;
+    private Address address;
+    private List<Category> category;
+    private Amenities amenities;
+    private User user;
+
+    @Override
+    public String toString() {
+        return "Space{" +
+                "spaceId=" + spaceId +
+                ", spaceName='" + spaceName + '\'' +
+                ", spaceImageUrl='" + spaceImageUrl + '\'' +
+                ", totalprice=" + totalprice +
+                ", location=" + location +
+                ", address=" + address +
+                ", category=" + category +
+                ", amenities=" + amenities +
+                ", user=" + user +
+                '}';
+    }
 
     public Space() {
     }
 
-    public Space(int spaceId, String spaceName, String spaceImageUrl, BigDecimal totalprice) {
+    public Space(int spaceId, String spaceName, String spaceImageUrl, BigDecimal totalprice, Location location, Address address, List<Category> category, Amenities amenities, User user) {
         this.spaceId = spaceId;
         this.spaceName = spaceName;
         this.spaceImageUrl = spaceImageUrl;
         this.totalprice = totalprice;
+        this.location = location;
+        this.address = address;
+        this.category = category;
+        this.amenities = amenities;
+        this.user = user;
     }
-
-
 
 
     public int getSpaceId() {

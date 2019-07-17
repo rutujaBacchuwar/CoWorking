@@ -11,8 +11,6 @@ import java.util.List;
 
 @Service
 public class SpaceServiceImpl implements SpaceService {
-
-
     SpaceRepository spaceRepository;
 
     @Autowired
@@ -52,7 +50,7 @@ public class SpaceServiceImpl implements SpaceService {
 
     }
     @Override
-    public List<Space> findByName(String name)  {
+    public Space findByName(String name)  {
 
         return spaceRepository.findByName(name);
     }

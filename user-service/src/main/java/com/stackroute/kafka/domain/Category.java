@@ -12,12 +12,8 @@ public class Category {
     @Id
     int categoryId;
     String categoryName;
-   // BigDecimal price;
+    BigDecimal price;
     String[] additionalAmenities;
-    double hourlyPrice;
-    double monthlyPrice;
-    double dailyPrice;
-    int capacity;
 
 //    categoryId;
 //    categoryName;
@@ -36,55 +32,22 @@ public class Category {
     public Category() {
     }
 
+    @Override
+    public String toString() {
+        return "Category{" +
+                "categoryId=" + categoryId +
+                ", categoryName='" + categoryName + '\'' +
+                ", price=" + price +
+                ", additionalAmenities=" + Arrays.toString(additionalAmenities) +
+                ", dimension=" + dimension +
+                '}';
+    }
+
     public Category(int categoryId, String categoryName, BigDecimal price, String[] additionalAmenities) {
         this.categoryId = categoryId;
         this.categoryName = categoryName;
-       // this.price = price;
+        this.price = price;
         this.additionalAmenities = additionalAmenities;
-    }
-
-    public void setCategoryId(int categoryId) {
-        this.categoryId = categoryId;
-    }
-
-    public void setCategoryName(String categoryName) {
-        this.categoryName = categoryName;
-    }
-
-    public void setAdditionalAmenities(String[] additionalAmenities) {
-        this.additionalAmenities = additionalAmenities;
-    }
-
-    public double getHourlyPrice() {
-        return hourlyPrice;
-    }
-
-    public void setHourlyPrice(double hourlyPrice) {
-        this.hourlyPrice = hourlyPrice;
-    }
-
-    public double getMonthlyPrice() {
-        return monthlyPrice;
-    }
-
-    public void setMonthlyPrice(double monthlyPrice) {
-        this.monthlyPrice = monthlyPrice;
-    }
-
-    public double getDailyPrice() {
-        return dailyPrice;
-    }
-
-    public void setDailyPrice(double dailyPrice) {
-        this.dailyPrice = dailyPrice;
-    }
-
-    public int getCapacity() {
-        return capacity;
-    }
-
-    public void setCapacity(int capacity) {
-        this.capacity = capacity;
     }
 
     public int getCategoryId() {
@@ -95,13 +58,12 @@ public class Category {
         return categoryName;
     }
 
-//    public BigDecimal getPrice() {
-//        return price;
-//    }
+    public BigDecimal getPrice() {
+        return price;
+    }
 
     public String[] getAdditionalAmenities() {
         return additionalAmenities;
     }
-
 
 }

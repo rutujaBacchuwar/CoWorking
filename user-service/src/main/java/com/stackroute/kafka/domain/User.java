@@ -8,13 +8,25 @@ import org.springframework.data.mongodb.core.mapping.Document;
 public class User {
 
     @Id
-    private int uid;
+    private long uid;
 
     private String name;
 
     private long contactNumber;
 
     private String emailId;
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "uid=" + uid +
+                ", name='" + name + '\'' +
+                ", contactNumber=" + contactNumber +
+                ", emailId='" + emailId + '\'' +
+                ", password='" + password + '\'' +
+                ", address='" + address + '\'' +
+                '}';
+    }
 
     @Transient
     private String password;
@@ -37,16 +49,4 @@ public class User {
     }
 
 
-
-    @Override
-    public String toString() {
-        return "User{" +
-                "uid=" + uid +
-                ", name='" + name + '\'' +
-                ", contactNumber=" + contactNumber +
-                ", emailId='" + emailId + '\'' +
-                ", password='" + password + '\'' +
-                ", address='" + address + '\'' +
-                '}';
-    }
 }

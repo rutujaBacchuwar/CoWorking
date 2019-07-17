@@ -1,12 +1,10 @@
 package com.stackroute.userservice.controller;
 
-//import com.stackroute.kafka.domain.Producer;
+import com.stackroute.kafka.domain.Producer;
 import com.stackroute.kafka.domain.Space;
 import com.stackroute.kafka.domain.User;
 import com.stackroute.userservice.exception.UserAlreadyExists;
 import com.stackroute.userservice.exception.UserNotFoundException;
-import com.stackroute.userservice.repository.UserRepository;
-import com.stackroute.userservice.service.SpaceServiceImpl;
 import com.stackroute.userservice.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -19,21 +17,19 @@ import java.util.List;
 @RequestMapping(value="/api/v1")
 public class UserController {
     UserService userService;
-    @Autowired
-    SpaceServiceImpl spaceService;
 
     @Autowired
-//    Producer producer;
+    Producer producer;
     public UserController(UserService userService) {
         this.userService = userService;
     }
 
-    @PostMapping("/user")
+    @PostMapping("user")
     public ResponseEntity<?> saveUser(@RequestBody User user)  throws UserAlreadyExists {
         ResponseEntity responseEntity;
         try{
             userService.saveUser(user);
-//            producer.send(user);
+            producer.send(user);
             responseEntity=new ResponseEntity<String>("Successfully created", HttpStatus.CREATED);
 
         }catch (UserAlreadyExists ex){
@@ -47,12 +43,12 @@ public class UserController {
 
 
 
-    @GetMapping("/getuser")
+    @GetMapping("user")
     public ResponseEntity<?>getAllUsers(){
         return  new ResponseEntity<List<User>>(userService.getAllUsers(),HttpStatus.OK);
     }
 
-    @PatchMapping ("/updateuser")
+    @PatchMapping ("user")
     public ResponseEntity<?> updateUsers(@RequestBody User user) throws  UserNotFoundException{
         ResponseEntity responseEntity;
         try{
@@ -68,7 +64,7 @@ public class UserController {
 
 
 
-    @DeleteMapping("/deleteuser")
+    @DeleteMapping("user")
     public ResponseEntity<String> deleteUser(@RequestBody User user)
     {
         ResponseEntity responseEntity;
@@ -83,15 +79,4 @@ public class UserController {
         }
         return responseEntity;
     }
-
-    @GetMapping("/user/{name}")
-    public ResponseEntity<User> getByName(@PathVariable String name){
-//        Space space =spaceService.findByName(name);
-//        User user=space.getUser();
-        ResponseEntity responseEntity=new ResponseEntity<User>(userService.getByName(name),HttpStatus.OK);
-        return responseEntity;
-    }
-
-
-
 }

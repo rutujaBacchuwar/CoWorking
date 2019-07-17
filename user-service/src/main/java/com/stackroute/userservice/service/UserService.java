@@ -12,6 +12,5 @@ public interface UserService {
     public User saveUser(User user) throws  UserAlreadyExists;
     public boolean deleteUser(User user) throws Exception;
     public User updateUser(User user) throws UserNotFoundException;
-    public User getByName(String name);
 
 }

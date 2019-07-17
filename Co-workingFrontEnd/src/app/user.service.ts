@@ -37,7 +37,7 @@ return this.http.post("http://13.235.110.75:8090/api/v1/user",userDetails);
 
 getToken(obj): any {
   console.log("get token working.. ");
-  console.log(obj.emailId,obj.password);
+  console.log(obj.name,obj.password);
   return this.http.post(`http://13.235.110.75:8002/api/user`,obj);
 }
 

@@ -13,5 +13,5 @@ public interface SpaceService {
     public List<Space> getAllSpaces() ;
     public Space update(Space space) throws SpaceNotFound;
     public List<Space> deleteSpace(int spaceId) throws SpaceNotFound;
-    public List<Space> findByName(String name);
+    public Space findByName(String name);
 }

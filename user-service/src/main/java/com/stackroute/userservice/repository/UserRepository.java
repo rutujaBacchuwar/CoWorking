@@ -7,13 +7,10 @@ import org.springframework.data.mongodb.repository.Query;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface UserRepository extends MongoRepository<User,Integer> {
+public interface UserRepository extends MongoRepository<User,String> {
 
     void deleteByEmailId(String emailId);
     boolean existsByEmailId(String emailId);
-
-    @Query("{ 'name': '?0' }")
-    User findByName(String name);
 
 
 
