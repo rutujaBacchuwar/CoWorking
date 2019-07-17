@@ -7,14 +7,6 @@ public class Dimension {
     public Dimension() {
     }
 
-    @Override
-    public String toString() {
-        return "Dimension{" +
-                "width=" + width +
-                ", height=" + height +
-                '}';
-    }
-
     public Dimension(int width, int height) {
         this.width = width;
         this.height = height;

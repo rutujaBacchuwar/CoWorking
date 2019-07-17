@@ -16,18 +16,6 @@ public class Address {
     public Address() {
     }
 
-    @Override
-    public String toString() {
-        return "Address{" +
-                "pincode=" + pincode +
-                ", buildingNumber='" + buildingNumber + '\'' +
-                ", area='" + area + '\'' +
-                ", city='" + city + '\'' +
-                ", state='" + state + '\'' +
-                ", country='" + country + '\'' +
-                '}';
-    }
-
     public Address(int pincode, String buildingNumber, String area, String city, String state, String country) {
         this.pincode = pincode;
         this.buildingNumber = buildingNumber;

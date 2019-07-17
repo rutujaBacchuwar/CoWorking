@@ -6,11 +6,12 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="config-server" />
-        <module name="user-service" />
         <module name="eureka-server" />
+        <module name="workspace-service" />
+        <module name="config-server" />
         <module name="login-service" />
         <module name="zuul-gatewayservice" />
+        <module name="user-service" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
@@ -19,6 +20,7 @@
       <module name="ibm-wave5-coworking" target="11" />
       <module name="login-service" target="11" />
       <module name="user-service" target="6" />
+      <module name="workspace-service" target="1.8" />
       <module name="zuul-gatewayservice" target="11" />
     </bytecodeTargetLevel>
   </component>
@@ -28,6 +30,7 @@
       <module name="eureka-server" options="-parameters" />
       <module name="login-service" options="-parameters" />
       <module name="user-service" options="-parameters" />
+      <module name="workspace-service" options="-parameters" />
       <module name="zuul-gatewayservice" options="-parameters" />
     </option>
   </component>

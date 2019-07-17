@@ -1,4 +1,6 @@
 package com.stackroute.userservice.controller;
+
+
 import com.stackroute.kafka.domain.*;
 import com.stackroute.userservice.exception.SpaceAlreadyExistException;
 import com.stackroute.userservice.exception.SpaceNotFound;
@@ -19,7 +21,6 @@ public class SpaceController {
     SpaceServiceImpl spaceService;
 
     @Autowired
-    Producer producer;
     public SpaceController(SpaceServiceImpl spaceService) {
         this.spaceService = spaceService;
     }
@@ -31,7 +32,7 @@ public class SpaceController {
     Amenities amenities=new Amenities();
     User user=new User();
 
-    @PostMapping("space")
+    @PostMapping("/newSpace")
     public ResponseEntity<Space> saveSpace(@RequestBody Space space){
         ResponseEntity responseEntity;
         try {
@@ -39,12 +40,11 @@ public class SpaceController {
             space.setUser(user);
 
             category = space.getCategory();
-
             for (int i=0; i<=category.size()-1;i++)
             {
-               Category category1= category.get(i);
-               dimension= category1.getDimension();
-              category1.setDimension(dimension);
+                Category category1= category.get(i);
+                dimension= category1.getDimension();
+                category1.setDimension(dimension);
             }
             space.setCategory(category);
 
@@ -58,26 +58,20 @@ public class SpaceController {
             space.setAmenities(amenities);
 
             responseEntity = new ResponseEntity<Space>(spaceService.saveSpace(space), HttpStatus.OK);
-            producer.send1(space);
-            producer.send2(space);
-            producer.send3(space);
-            producer.send4(space);
-            producer.send5(space);
-            producer.send6(space);
         }catch (SpaceAlreadyExistException spacealreadyexist){
             responseEntity=new ResponseEntity(spacealreadyexist.getMessage(),HttpStatus.CONFLICT);
         }
       return responseEntity;
     }
 
-    @GetMapping("space")
+    @GetMapping("/AllSpaces")
     public ResponseEntity<?> getSpace(){
         ResponseEntity responseEntity=new ResponseEntity<List<Space>>(spaceService.getAllSpaces(),HttpStatus.OK);
         return responseEntity;
     }
 
 
-    @PutMapping("space")
+    @PutMapping("/space")
     public ResponseEntity<?> updateSpace(@RequestBody Space space) {
 
         ResponseEntity responseEntity;
@@ -89,7 +83,7 @@ public class SpaceController {
         }
         return responseEntity;
     }
-    @DeleteMapping("space")
+    @DeleteMapping("space/{spaceId}")
     public ResponseEntity<?> deleteSpace(@PathVariable int spaceId){
         ResponseEntity responseEntity;
         try {
@@ -101,9 +95,10 @@ public class SpaceController {
         return  responseEntity;
     }
 
-    @GetMapping("space/{name}")
-    public ResponseEntity<Space> getByName(@PathVariable String name){
-        ResponseEntity responseEntity=new ResponseEntity<Space>(spaceService.findByName(name),HttpStatus.OK);
+    @GetMapping("/{name}")
+    public ResponseEntity<?> getBySpaceName(@PathVariable String name){
+        ResponseEntity responseEntity=new ResponseEntity<List<Space>>(spaceService.findByName(name),HttpStatus.OK);
         return responseEntity;
     }
+
 }
