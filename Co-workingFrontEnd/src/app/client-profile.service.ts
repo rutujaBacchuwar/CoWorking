@@ -13,7 +13,7 @@ export class ClientProfileService {
   //  }
 
   getClientData(address):any{
-    return this.httpClient.get(`http://localhost:8006/v1/api/space/location/${address}`);
+    return this.httpClient.get(`http://13.235.110.75:8006/v1/api/space/location/${address}`);
   }
 
   //  getdetails():any{
@@ -22,11 +22,11 @@ export class ClientProfileService {
   // }
 
   getClientDataBasedOnPrice():any{
-    return this.httpClient.get(`http://localhost:8006/v1/api/contains/priceRecommendation`)
+    return this.httpClient.get(`http://13.235.110.75:8006/v1/api/contains/priceRecommendation`)
 
   }
 
   getClientDataBasedOnLocation():any{
-    return this.httpClient.get('http://localhost:8006/v1/api/located/recommendationLoc')
+    return this.httpClient.get('http://13.235.110.75:8006/v1/api/located/recommendationLoc')
   }
 }

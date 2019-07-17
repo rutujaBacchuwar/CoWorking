@@ -30,10 +30,15 @@ public class IsInRelationshipController {
         return isInRelationshipService.createrelationship(locationName,cityName);
     }
 
+//
+//    @GetMapping("/recommendationLocCity")
+//    public Collection<Space> recommendationLoc() {
+//        return isInRelationshipService.getSpaceWithCity();
+//    }
 
-    @GetMapping("/recommendationLocCity")
-    public Collection<Space> recommendationLoc() {
-        return isInRelationshipService.getSpaceWithCity();
+    @GetMapping("/recommendationLocCity/{cityName}")
+    public Collection<Space> recommendationLoc(@PathVariable String cityName) {
+        return isInRelationshipService.getSpaceWithCity(cityName);
     }
 
 }
