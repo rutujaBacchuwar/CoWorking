@@ -124,21 +124,21 @@ services:
 
 
   neo4j:
-    image: neo4j
+    image: neo4j:3.0
     ports:
-        - 7474:7474
-        - 7687:7687
+      - 7474:7474
+      - 7687:7687
     expose:
-        - 7474
+      - 7474
     container_name: neo4j_docker
     network_mode: host
     hostname: localhost
-    restart: always
     volumes:
-        - ./neo4j/data:/data
-        - ./neo4j/import:/import
+      - ./neo4j/data:/data
+      - ./neo4j/import:/import
     environment:
-        - NEO4J_AUTH=neo4j/root123
+      - NEO4J_AUTH=neo4j/root123
+    restart: always
 
 
 
