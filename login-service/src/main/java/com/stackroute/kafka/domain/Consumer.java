@@ -1,4 +1,4 @@
-package com.stackroute;
+package com.stackroute.kafka.domain;
 import com.stackroute.loginservice.domain.User1;
 import com.stackroute.loginservice.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;

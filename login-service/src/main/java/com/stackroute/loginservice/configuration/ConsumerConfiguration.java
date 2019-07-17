@@ -1,7 +1,7 @@
 package com.stackroute.loginservice.configuration;
 
-import com.stackroute.Consumer;
-import com.stackroute.User;
+import com.stackroute.kafka.domain.Consumer;
+import com.stackroute.kafka.domain.User;
 import com.stackroute.loginservice.service.UserService;
 import org.apache.kafka.clients.consumer.ConsumerConfig;
 import org.apache.kafka.common.serialization.StringDeserializer;
@@ -19,6 +19,9 @@ import org.springframework.kafka.support.serializer.JsonDeserializer;
 import java.util.HashMap;
 import java.util.Map;
 
+
+
+
 @EnableKafka
 @Configuration
 public class ConsumerConfiguration {
@@ -28,6 +31,10 @@ public class ConsumerConfiguration {
     private static String KEY_DESERIALIZER_CLASS_CONFIG ;
     private static String VALUE_DESERIALIZER_CLASS_CONFIG;
     private static String GROUP_ID_CONFIG;
+
+
+
+
 
     @Value("${kafka.bootstrap-servers}")
     private String bootstrapServers;

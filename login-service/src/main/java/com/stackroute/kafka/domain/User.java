@@ -1,4 +1,4 @@
-package com.stackroute;
+package com.stackroute.kafka.domain;
 import lombok.Data;
 import org.springframework.data.annotation.Id;
 @Data
