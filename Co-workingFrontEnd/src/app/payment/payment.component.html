@@ -1,0 +1,67 @@
+<form id="payment-form">
+    <div class="payment">
+        <div class="col-50">
+            <h3>Payment</h3>
+            <div class="icon-container">
+                <i class="fa fa-cc-visa" style="color:navy;"></i>&nbsp;
+                <i class="fa fa-cc-amex" style="color:blue;"></i>&nbsp;
+                <i class="fa fa-cc-mastercard" style="color:red;"></i>&nbsp;
+                <i class="fa fa-cc-discover" style="color:orange;"></i>&nbsp;<br>
+            </div>
+            <br>
+            <div>
+                <label for="name">Name on Card</label>
+                <input id="name" maxlength="25" type="text" name="name" required size="1" placeholder="John More" #name>
+            </div>
+            <div>
+                <label for="ccnum">Credit card number</label>
+                <input type="text" name="cardNumber" required maxlength="16" placeholder="1111-2222-3333-4444"
+                    maxlength="16" inputmode="numeric" #cnumber>
+            </div>
+            <div>
+                <label for="expmonth">Exp Month</label>
+                <input type="text" name="expMonth" required maxlength="02" placeholder="09" #expmonth>
+
+                <div class="row">
+                    <div class="col-50">
+                        <label for="expyear">Exp Year</label>
+                        <input type="text" name="expYear" required maxlength="04" placeholder="2018" #expyear>
+                    </div>
+                </div>
+            </div>
+                <div class="col-50">
+                    <label for="cvv">CVV</label>
+                    <input type="text" name="cvc" required maxlength="3" placeholder="352" #cvv>
+                </div>
+            
+            <div class="form-group" id="pay-now">
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">Submit</button>
+            </div>
+        </div>
+      </div>
+        </form>
+
+
+<div class="modal fade" id="myModal">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <h4 class="modal-title"></h4>
+                <!-- <button type="button" class="close" data-dismiss="modal">&times;</button> -->
+            </div>
+
+            <!-- Modal body -->
+            <div class="modal-body">
+               <h4>Payment Successful</h4>
+            </div>
+
+            <!-- Modal footer -->
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+
+        </div>
+    </div>
+</div>
