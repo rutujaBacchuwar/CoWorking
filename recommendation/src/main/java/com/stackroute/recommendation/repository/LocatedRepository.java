@@ -13,7 +13,7 @@ public interface LocatedRepository extends Neo4jRepository<Space,Long> {
     public Collection<Space> getRelationship();
 
     @Query("MATCH (a:Space),(b:Location) WHERE a.spaceName = {spaceName} AND b.locationName = {locationName} CREATE (a)-[r:Located]->(b) RETURN r")
-    public Space createRelationship(String spaceName,String locationName);
+    public Space createRelationship(String spaceName, String locationName);
 
     @Query("MATCH (a:Category),(b:Location) WHERE a.categoryName = {categoryName} AND b.locationName = {locationName} CREATE (a)-[r:Located]->(b) RETURN r")
     public Category createRelationshipLoc(String categoryName, String locationName);

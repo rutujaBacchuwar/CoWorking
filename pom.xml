@@ -32,7 +32,7 @@
 		<module>user-service</module>
 		<module>login-service</module>
 		<module>workspace-service</module>
-		
+		<module>recommendation</module>
 	</modules>
 
 	<dependencies>

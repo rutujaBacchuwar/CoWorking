@@ -16,7 +16,7 @@ public class Category {
 
     @Property
     private String categoryName;
-    private double price;
+    private  double price;
     Space space;
 
     public Space getSpace() {
@@ -33,7 +33,7 @@ public class Category {
     @Relationship(type = "Located", direction = Relationship.INCOMING)
     private List<Location> locations;
 
-    public Category(long categoryId, String categoryName, double price) {
+    public Category(long categoryId, String categoryName,double price) {
         this.categoryId = categoryId;
         this.categoryName = categoryName;
         this.price = price;
@@ -49,6 +49,33 @@ public class Category {
 
     public double getPrice() {
         return price;
+    }
+
+    public void setCategoryId(long categoryId) {
+        this.categoryId = categoryId;
+    }
+
+    public void setCategoryName(String categoryName) {
+        this.categoryName = categoryName;
+    }
+
+    public void setPrice(double price) {
+        this.price = price;
+    }
+
+    public void setLocations(List<Location> locations) {
+        this.locations = locations;
+    }
+
+    @Override
+    public String toString() {
+        return "Category{" +
+                "categoryId=" + categoryId +
+                ", categoryName='" + categoryName + '\'' +
+                ", price=" + price +
+                ", space=" + space +
+                ", locations=" + locations +
+                '}';
     }
 }
 

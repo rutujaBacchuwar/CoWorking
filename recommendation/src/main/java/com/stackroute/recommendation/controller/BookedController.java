@@ -11,7 +11,7 @@ import java.util.Collection;
 @RequestMapping(value = "v1/api/booked")
 public class BookedController {
 
-BookedService bookedService;
+    BookedService bookedService;
 
     @Autowired
     public BookedController(BookedService bookedService) {
@@ -25,8 +25,8 @@ BookedService bookedService;
     }
 
     @PostMapping("/newRelationship/{name}/{categoryName}/{spaceId}")
-    public User relationship(@PathVariable String name, @PathVariable String categoryName,@PathVariable long spaceId) {
-        User user1 = bookedService.createRelationship(name, categoryName,spaceId);
+    public User relationship(@PathVariable String name, @PathVariable String categoryName, @PathVariable long spaceId) {
+        User user1 = bookedService.createRelationship(name, categoryName, spaceId);
         return user1;
     }
 

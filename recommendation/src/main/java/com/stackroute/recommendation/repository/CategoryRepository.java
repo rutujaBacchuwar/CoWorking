@@ -6,7 +6,6 @@ import org.springframework.data.neo4j.annotation.Query;
 import org.springframework.data.neo4j.repository.Neo4jRepository;
 import org.springframework.data.repository.query.Param;
 
-import java.math.BigDecimal;
 import java.util.Collection;
 
 public interface CategoryRepository extends Neo4jRepository<Category,Long> {

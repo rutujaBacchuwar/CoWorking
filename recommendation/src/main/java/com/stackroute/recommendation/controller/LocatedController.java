@@ -7,7 +7,7 @@ import com.stackroute.recommendation.service.LocatedService;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Collection;
-@CrossOrigin("*")
+
 @RestController
 @RequestMapping(value = "v1/api/located")
 public class LocatedController {

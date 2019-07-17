@@ -7,22 +7,15 @@ import com.stackroute.recommendation.service.CategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
-
 import java.util.Collection;
 
-import java.util.Collection;
-@CrossOrigin("*")
 @RestController
 @RequestMapping(value = "v1/api/category")
 public class CategoryController {
 
     public CategoryService categoryService;
 
-    Space space=new Space();
+    Space space = new Space();
 
     @Autowired
     public CategoryController(CategoryService categoryService) {
@@ -41,14 +34,14 @@ public class CategoryController {
     }
 
 
-   // To create new user
+    // To create new user
     @PostMapping("/newCategory")
     public Category save(@RequestBody Category category) {
 
-        space=category.getSpace();
+        space = category.getSpace();
         category.setSpace(space);
 
-        Category category1 = categoryService.create(category.getCategoryId(), category.getCategoryName(), category.getPrice(),space);
+        Category category1 = categoryService.create(category.getCategoryId(), category.getCategoryName(), category.getPrice(), space);
         return category1;
     }
 

@@ -1,6 +1,5 @@
 package com.stackroute.recommendation.repository;
 
-import com.stackroute.recommendation.domain.Category;
 import com.stackroute.recommendation.domain.Space;
 import org.springframework.data.neo4j.annotation.Query;
 import org.springframework.data.neo4j.repository.Neo4jRepository;

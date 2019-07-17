@@ -5,7 +5,6 @@ import org.neo4j.ogm.annotation.GraphId;
 import org.neo4j.ogm.annotation.NodeEntity;
 import org.neo4j.ogm.annotation.Property;
 import org.neo4j.ogm.annotation.Relationship;
-import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.Collection;
 import java.util.List;
@@ -20,7 +19,7 @@ public class Space {
     private String spaceName;
 
     @Relationship(type = "Contains",direction = Relationship.INCOMING)
-    private Collection<String> category;
+    private List<Category> category;
 
     @Relationship(type = "Located",direction = Relationship.INCOMING)
     private List<Location> locations;
@@ -41,11 +40,37 @@ public class Space {
         return spaceName;
     }
 
+    public void setSpaceId(long spaceId) {
+        this.spaceId = spaceId;
+    }
+
+    public void setSpaceName(String spaceName) {
+        this.spaceName = spaceName;
+    }
+
     @Override
     public String toString() {
         return "Space{" +
                 "spaceId=" + spaceId +
                 ", spaceName='" + spaceName + '\'' +
+                ", category=" + category +
+                ", locations=" + locations +
                 '}';
+    }
+
+    public void setCategory(List<Category> category) {
+        this.category = category;
+    }
+
+    public void setLocations(List<Location> locations) {
+        this.locations = locations;
+    }
+
+    public List<Category> getCategory() {
+        return category;
+    }
+
+    public List<Location> getLocations() {
+        return locations;
     }
 }

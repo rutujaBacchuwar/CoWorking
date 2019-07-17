@@ -16,7 +16,7 @@ public interface LocationRepository extends Neo4jRepository<Location,Long> {
     public Collection<Location> getAll();
 
     @Query("CREATE (u:Location) SET u.locationId={locationId},u.locationName={locationName},u.latitude={latitude},u.longitude={longitude}")
-    public Location createNode(long locationId, String locationName,double latitude,double longitude);
+    public Location createNode(long locationId, String locationName, double latitude, double longitude);
 
     @Query("MATCH (n:Location) WHERE n.locationId={locationId} DETACH DELETE n RETURN 'node deleted' ")
     public Location deleteNode(long locationId);
@@ -25,6 +25,6 @@ public interface LocationRepository extends Neo4jRepository<Location,Long> {
     public Location deleteAllNodes();
 
     @Query("MATCH (n:Location) WHERE n.locationId={locationId} SET n.locationName={locationName} RETURN n")
-    public Location updateNode( long locationId,String locationName);
+    public Location updateNode(long locationId, String locationName);
 
 }

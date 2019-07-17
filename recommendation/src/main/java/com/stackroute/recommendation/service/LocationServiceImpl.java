@@ -43,7 +43,7 @@ public class LocationServiceImpl implements LocationService {
     }
 
     @Override
-    public Location update(long id, String locationName) {
-        return locationRepository.updateNode(id,locationName);
+    public Location update(long locationId, String locationName) {
+        return locationRepository.updateNode(locationId,locationName);
     }
 }

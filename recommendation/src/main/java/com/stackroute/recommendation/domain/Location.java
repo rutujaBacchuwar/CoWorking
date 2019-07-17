@@ -9,7 +9,7 @@ import org.neo4j.ogm.annotation.Property;
 public class Location {
 
     @GraphId
-    private long id;
+    private long locationId;
     @Property
     private String locationName;
     private double latitude;
@@ -19,15 +19,15 @@ public class Location {
     public Location() {
     }
 
-    public Location(long id, String locationName, double latitude, double longitude) {
-        this.id = id;
+    public Location(long locationId, String locationName, double latitude, double longitude) {
+        this.locationId = locationId;
         this.locationName = locationName;
         this.latitude = latitude;
         this.longitude = longitude;
     }
 
-    public long getId() {
-        return id;
+    public long getLocationId() {
+        return locationId;
     }
 
     public double getLatitude() {
@@ -40,5 +40,32 @@ public class Location {
 
     public String getLocationName() {
         return locationName;
+    }
+
+    public void setLocationId(long locationId) {
+        this.locationId =locationId;
+
+    }
+
+    public void setLocationName(String locationName) {
+        this.locationName = locationName;
+    }
+
+    public void setLatitude(double latitude) {
+        this.latitude = latitude;
+    }
+
+    public void setLongitude(double longitude) {
+        this.longitude = longitude;
+    }
+
+    @Override
+    public String toString() {
+        return "Location{" +
+                "locationId=" + locationId +
+                ", locationName='" + locationName + '\'' +
+                ", latitude=" + latitude +
+                ", longitude=" + longitude +
+                '}';
     }
 }

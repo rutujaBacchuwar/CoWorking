@@ -9,5 +9,5 @@ public interface IsInRelationshipService {
 
     public Collection<IsIn> getRelationship();
     public IsIn createrelationship(String locationName,String cityName);
-    public Collection<Space> getSpaceWithCity(String cityName);
+    public Collection<Space> getSpaceWithCity();
 }

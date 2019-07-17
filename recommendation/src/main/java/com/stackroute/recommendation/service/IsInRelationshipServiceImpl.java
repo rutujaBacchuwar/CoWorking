@@ -31,7 +31,7 @@ public class IsInRelationshipServiceImpl implements IsInRelationshipService {
     }
 
     @Override
-    public Collection<Space> getSpaceWithCity(String cityName) {
-        return isInRelationshipRepository.getSpaceCity(cityName);
+    public Collection<Space> getSpaceWithCity() {
+        return isInRelationshipRepository.getSpaceCity();
     }
 }

@@ -1,7 +1,6 @@
 package com.stackroute.recommendation.controller;
 
 
-import com.stackroute.recommendation.domain.Category;
 import com.stackroute.recommendation.domain.Space;
 import com.stackroute.recommendation.service.CategoryService;
 import com.stackroute.recommendation.service.SpaceService;
@@ -9,7 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Collection;
-@CrossOrigin("*")
+
 @RestController
 @RequestMapping(value = "v1/api/space")
 public class SpaceController {

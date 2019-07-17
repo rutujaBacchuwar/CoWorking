@@ -51,4 +51,16 @@ public class User {
     public int getUid() {
         return uid;
     }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setEmailId(String emailId) {
+        this.emailId = emailId;
+    }
+
+    public void setUid(int uid) {
+        this.uid = uid;
+    }
 }

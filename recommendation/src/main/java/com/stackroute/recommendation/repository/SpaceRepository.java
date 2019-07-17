@@ -1,6 +1,5 @@
 package com.stackroute.recommendation.repository;
 
-import com.stackroute.recommendation.domain.Category;
 import com.stackroute.recommendation.domain.Space;
 import org.springframework.data.neo4j.annotation.Query;
 import org.springframework.data.neo4j.repository.Neo4jRepository;
@@ -34,7 +33,7 @@ public interface SpaceRepository extends Neo4jRepository<Space,Long> {
     public Space deleteAllNodes();
 
     @Query("MATCH (n:Space) WHERE n.spaceId={spaceId} SET n.spaceName={spaceName} RETURN n")
-    public Space updateNode( long spaceId,String spaceName);
+    public Space updateNode(long spaceId, String spaceName);
 
 
 

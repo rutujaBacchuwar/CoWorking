@@ -88,6 +88,19 @@ services:
 
 
 
+  user-service:
+     image: user-service
+     build: user-service/
+     #restart: always
+     network_mode: host
+     depends_on:
+        - mongo
+        - eurekaserver
+        - configserver
+        - apigateway
+
+
+
   login-service:
      image: login-service
      build: login-service
@@ -108,18 +121,35 @@ services:
      depends_on:
         - mongo
         - eurekaserver
-  
- 
-  user-service:
-     image: user-service
-     build: user-service/
-     #restart: always
-     network_mode: host
-     depends_on:
-        - mongo
-        - eurekaserver
-        - configserver
-        - apigateway
+
+
+  neo4j:
+    image: neo4j:3.0
+    ports:
+        - 7474:7474
+        - 7687:7687
+    expose:
+        - 7474
+    container_name: neo4j_docker
+    network_mode: host
+    hostname: localhost
+    restart: always
+    volumes:
+        - ./neo4j/data:/data
+        - ./neo4j/import:/import
+    environment:
+        - NEO4J_AUTH=neo4j/root123
+
+
+
+  recommendation:
+    image: recommendation
+    build: recommendation
+    #restart: always
+    network_mode: host
+    depends_on:
+       - neo4j
+       - eurekaserver
 
 
 

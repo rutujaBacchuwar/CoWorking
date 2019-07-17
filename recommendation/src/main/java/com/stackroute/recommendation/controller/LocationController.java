@@ -34,7 +34,7 @@ public class LocationController {
     // To create new user
     @PostMapping("/newLocation")
     public Location save(@RequestBody Location location) {
-        Location location1 = locationService.create(location.getId(), location.getLocationName(), location.getLatitude(),location.getLongitude());
+        Location location1 = locationService.create(location.getLocationId(), location.getLocationName(), location.getLatitude(), location.getLongitude());
         return location1;
     }
 
