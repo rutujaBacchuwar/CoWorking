@@ -21,7 +21,7 @@ export class CardService {
 
   getByCategory(category): any {
     console.log("in category"+category);
-    return this.httpclient.get(`http://localhost:8005/api/v1/category/${category}`);
+    return this.httpclient.get(`http://13.235.110.75:8005/api/v1/category/${category}`);
   }
   getSpaceDetails(name):any{
     return this.httpclient.get(`http://localhost:8005/api/v1/space/${name}`)
